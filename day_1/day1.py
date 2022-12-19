@@ -23,6 +23,15 @@ def find_max(assignments):
             max = (id, assignments[id])
     return max
         
+def find_top3(assignments):
+    values = list(assignments.values())
+    values.sort(reverse=True)
+    # print("vals", values)
+
+    sum = 0
+    for i in range(0,3):
+        sum = values[i] + sum
+    return sum
 
 
 def main():
@@ -35,9 +44,10 @@ def main():
 
     assignments = assign_inventory(inventory)
 
-    print(assignments)
     max = find_max(assignments)
-    print(max)
+    print('part 1:',max)
+    top3 = find_top3(assignments)
+    print('part 2:',top3)
 
 if __name__ == "__main__":
     main()
