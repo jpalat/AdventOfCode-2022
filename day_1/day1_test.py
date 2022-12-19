@@ -9,5 +9,11 @@ class Test_Day1(unittest.TestCase):
         self.assertEqual(day1.assign_inventory(inventory), {1: 6000, 2: 4000, 3: 11000, 4: 24000, 5: 10000}, "test pass")
         self.assertEqual(day1.find_max({1: 6000, 2: 4000, 3: 11000, 4: 24000, 5: 10000}), (4,24000), 'max found')
 
+    def test_day1_2(self):
+        with open('example.txt') as examplefile:
+            inventory = examplefile.readlines()
+        self.assertEqual(day1.find_top3({1: 6000, 2: 4000, 3: 11000, 4: 24000, 5: 10000}), 45000, 'top 3 found')
+
+
 if __name__ == '__main__':
     unittest.main()
