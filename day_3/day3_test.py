@@ -24,8 +24,10 @@ class Test_Day3(unittest.TestCase):
         self.assertEqual(day3.score('t'), 20,'')
         self.assertEqual(day3.score('s'), 19,'')
     def test_day3_2(self):
-        pass
-
+        with open('example.txt') as examplefile:
+            input = examplefile.readlines()
+        self.assertEqual(day3.find_badges(input), ['r', 'Z'], '')
+        self.assertEqual(day3.badge_total(input), 70, '')
 
 
 if __name__ == '__main__':
