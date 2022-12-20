@@ -38,6 +38,25 @@ def manage_stacks(input):
                 print_stack(stacks)
     return(stacks)
 
+def manage_stacks9001(input):
+    print("9001")
+    stacks = init_crates(input)
+    print_stack(stacks)
+    index_list = list(stacks.keys())
+    index_list.sort()
+    print(index_list)
+    for i in input:
+        if i[0] == 'm':
+            _, count , _, init , _, dest = i.split(' ')
+            print('count:', count, 'from', init, 'dest', dest)
+            cratestack = []
+            for i in range(int(count)):
+                cratestack.append(stacks[index_list[int(init)]].pop())
+            cratestack.reverse()
+            stacks[index_list[int(dest)]].extend(cratestack)
+            print_stack(stacks)
+    return(stacks)
+
 def print_stack(stack):
     index_list = list(stack.keys())
     index_list.sort()
@@ -63,6 +82,9 @@ def main():
         input = my_file.readlines()
 
     stacks = manage_stacks(input)
+    print(stack_top(stacks))
+
+    stacks = manage_stacks9001(input)
     print(stack_top(stacks))
         
 if __name__ == "__main__":

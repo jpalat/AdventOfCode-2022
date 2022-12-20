@@ -10,7 +10,10 @@ class Test_Day5(unittest.TestCase):
         self.assertEqual(day_5.manage_stacks(input) ,{0: [], 5: ['M'], 1: ['C'], 9: ['P', 'D', 'N', 'Z']}, "total")
 
     def test_day5_2(self):
-        pass
+        with open('example.txt') as examplefile:
+            input = examplefile.readlines()
+        self.assertEqual(day_5.manage_stacks9001(input) ,{0: [], 5: ['C'], 1: ['M'], 9: ['P', 'Z', 'N', 'D']}, "total")
+
 
 
 
